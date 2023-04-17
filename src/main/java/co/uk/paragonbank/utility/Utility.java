@@ -1,7 +1,7 @@
-package com.zenobe.utility;
+package co.uk.paragonbank.utility;
 
 import com.google.common.base.Function;
-import com.zenobe.browserfactory.ManageBrowser;
+import co.uk.paragonbank.browserfactory.ManageBrowser;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -313,7 +313,8 @@ public class Utility extends ManageBrowser {
      * This method will take screenshot
      */
     public static void takeScreenShot() {
-        String filePath = System.getProperty("user.dir") + "/src/main/java/com/zenobe/demo/screenshots/";
+        String filePath = System.getProperty("user.dir") +
+                "/src/main/java/co/uk/paragonbank/demo/screenshots/";
         TakesScreenshot screenshot = (TakesScreenshot) driver;
         File scr1 = screenshot.getScreenshotAs(OutputType.FILE);
         try {
@@ -334,7 +335,8 @@ public class Utility extends ManageBrowser {
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         // After execution, you could see a folder "FailedTestsScreenshots" under screenshot folder
-        String destination = System.getProperty("user.dir") + "/src/main/java/com/zenobe/FailedScreenshots/" +
+        String destination = System.getProperty("user.dir") +
+                "/src/main/java/co/uk/paragonbank/FailedScreenshots/" +
                 screenshotName + dateName + ".png";
         File finalDestination = new File(destination);
         try {

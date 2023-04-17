@@ -1,9 +1,8 @@
-package com.zenobe.pages;
+package co.uk.paragonbank.pages;
 
-import com.zenobe.utility.Utility;
+import co.uk.paragonbank.utility.Utility;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -18,42 +17,61 @@ public class CareersPage extends Utility {
     }
 
     @CacheLookup
-    @FindBy(xpath = "//span[text()='Job openings']")
-    WebElement jobOpenings;
+    @FindBy(xpath = "//a[text()='Close']")
+    WebElement acceptCookies;
 
     @CacheLookup
-    @FindBy(xpath = "//span[text()='All jobs']")
-    WebElement allJobs;
+    @FindBy(xpath = "//a[@class='Selected Parent' and text()='Careers']")
+    WebElement careersMenuTab;
 
     @CacheLookup
-    @FindBy(xpath = "//span[text()='QA Engineer']")
-    WebElement qaEngineer;
+    @FindBy(xpath = "//a[text()='Join our team']")
+    WebElement joinOurTeamLink;
 
     @CacheLookup
-    @FindBy(xpath = "//span[text()='Apply here!']")
-    WebElement applyButton;
+    @FindBy(xpath = "//input[@name='epdsubmit']")
+    WebElement continueButton;
 
+    @CacheLookup
+    @FindBy(xpath = "//input[@id='ctl00_topContent_QuickSearch_Keywords']")
+    WebElement keywords;
 
-    public void clickOnJobOpenings() {
-        clickOnElement(jobOpenings);
-    }
+    @CacheLookup
+    @FindBy(xpath = "//input[@id='ctl00_topContent_QuickSearch_Postcode']")
+    WebElement postcode;
 
-    public void clickOnAllJobsButton() throws InterruptedException{
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
+    @CacheLookup
+    @FindBy(xpath = "//a[text()='Search Jobs ']")
+    WebElement searchJobsButton;
+
+    //Accept Cookies
+    public void clickOnAcceptCookies() throws InterruptedException {
         Thread.sleep(2000);
-        jse.executeScript("arguments[0].scrollIntoView(true);", "//span[text()='Modeller']");
-        clickOnElement(allJobs);
+        clickOnElement(acceptCookies);
     }
 
-    public void clickOnQAEngineerLink() throws InterruptedException{
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
+    public void clickOnCareersTab() {
+        clickOnElement(careersMenuTab);
+    }
+
+    public void clickOnJoinOurTeam() {
+        clickOnElement(joinOurTeamLink);
+    }
+
+    public void clickOnContinueButton() throws InterruptedException{
         Thread.sleep(2000);
-        jse.executeScript("arguments[0].scrollIntoView(true);", "//span[text()='Procurement Manager']");
-        clickOnElement(qaEngineer);
+        clickOnElement(continueButton);
     }
 
-    public void clickOnApplyButton() {
-        clickOnElement(applyButton);
+    public void enterKeywordsField(String jobKeyword) {
+        sendTextToElement(keywords, jobKeyword);
     }
 
+    public void enterPostcodeField(String jobPostcode) {
+        sendTextToElement(postcode, jobPostcode);
+    }
+
+    public void clickOnSearchJobsButton() {
+        clickOnElement(searchJobsButton);
+    }
 }

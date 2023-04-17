@@ -1,6 +1,6 @@
-package com.zenobe.browserfactory;
+package co.uk.paragonbank.browserfactory;
 
-import com.zenobe.propertyreader.PropertyReader;
+import co.uk.paragonbank.propertyreader.PropertyReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;

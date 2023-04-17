@@ -1,32 +1,33 @@
-package uk.co.library.pages;
+package co.uk.paragonbank.pages;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import uk.co.library.utility.Utility;
+import co.uk.paragonbank.utility.Utility;
 
-public class ResultPage extends Utility {
+public class JobsResultPage extends Utility {
 
-    private static final Logger log = LogManager.getLogger(ResultPage.class.getName());
+    private static final Logger log = LogManager.getLogger(JobsResultPage.class.getName());
 
-    public ResultPage(){
+    public JobsResultPage(){
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(xpath = "//h1[@class='search-header__title']")
+    @FindBy(xpath = "//h2[@class='vsr-job__title']")
     WebElement resultText;
 
-    //Get Results text
-    public String getResultsText() {
-        log.info("Getting Text from: " + resultText.toString());
-        return getTextFromElement(resultText); //call method from Utility class
+    public String getResultsText() throws InterruptedException {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        Thread.sleep(2000);
+        jse.executeScript("arguments[0].scrollIntoView(true);", "//span[text()='View: ']");
+        return getTextFromElement(resultText);
     }
 
-    //Verify the results page
-    public void verifyTheResults(String result) {
+    public void verifyTheResults(String result) throws InterruptedException {
         String actualMsg = getResultsText(); //Get text from page
         String expectedMsg = result; //Expected Message
         Assert.assertEquals(actualMsg, expectedMsg, "Results Verified!"); //Compare and Verify test

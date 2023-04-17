@@ -1,8 +1,8 @@
-package com.zenobe;
+package co.uk.paragonbank;
 
 import com.cucumber.listener.Reporter;
-import com.zenobe.propertyreader.PropertyReader;
-import com.zenobe.utility.Utility;
+import co.uk.paragonbank.propertyreader.PropertyReader;
+import co.uk.paragonbank.utility.Utility;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;

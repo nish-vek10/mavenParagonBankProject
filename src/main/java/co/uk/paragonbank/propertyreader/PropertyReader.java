@@ -1,4 +1,4 @@
-package com.zenobe.propertyreader;
+package co.uk.paragonbank.propertyreader;
 
 import java.io.FileInputStream;
 import java.util.Properties;

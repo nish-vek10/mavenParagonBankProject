@@ -1,6 +1,6 @@
-package com.zenobe.pages;
+package co.uk.paragonbank.pages;
 
-import com.zenobe.utility.Utility;
+import co.uk.paragonbank.utility.Utility;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -19,32 +19,24 @@ public class HomePage extends Utility {
     }
 
     @CacheLookup
-    @FindBy(xpath = "//a[@id='cookie_action_close_header']")
+    @FindBy(xpath = "//a[@id='CookiePolicy_wt7_block_wt14']")
     WebElement acceptCookies;
 
     @CacheLookup
-    @FindBy(xpath = "//ul[@id='menu-1-c6a4cde']/li")
+    @FindBy(xpath = "//span[@class='pCMS_SiteMenuBarItems']/li")
     List<WebElement> topMenuTabs;
 
     @CacheLookup
-    @FindBy(xpath = "//h1[text()='Electric Fleets']")
-    WebElement headerTextElectric;
+    @FindBy(xpath = "//span[@class='ListRecords']/li//a[text()='Savings']")
+    WebElement savings;
 
     @CacheLookup
-    @FindBy(xpath = "//h1[text()='Second-life Batteries']")
-    WebElement headerTextBatteries;
+    @FindBy(xpath = "//span[@class='ListRecords']/li//a[text()='Mortgage blog']")
+    WebElement mortgageBlog;
 
     @CacheLookup
-    @FindBy(xpath = "//div[@class='elementor-icon-wrapper']/a")
-    WebElement moreOptions;
-
-    @CacheLookup
-    @FindBy(xpath = "//a[@id='about-us']")
-    WebElement aboutUs;
-
-    @CacheLookup
-    @FindBy(xpath = "//a[text()='Careers']")
-    WebElement careers;
+    @FindBy(xpath = "//a[@tabindex='9' and text()='Careers']")
+    WebElement careersTab;
 
     //Accept Cookies
     public void clickOnAcceptCookies() throws InterruptedException {
@@ -62,26 +54,16 @@ public class HomePage extends Utility {
         }
     }
 
-    public String getHeaderTextElectric() {
-        String headText = getTextFromElement(headerTextElectric);
-        return headText;
+    public void clickOnSavings() {
+        clickOnElement(savings);
     }
 
-    public String getHeaderTextBatteries() {
-        String headText = getTextFromElement(headerTextBatteries);
-        return headText;
+    public void clickOnMortgageBlog() {
+        clickOnElement(mortgageBlog);
     }
 
-    public void clickOnExtraOptions() {
-        clickOnElement(moreOptions);
-    }
-
-    public void clickOnAboutUs() {
-        clickOnElement(aboutUs);
-    }
-
-    public void clickOnCareers() {
-        clickOnElement(careers);
+    public void clickOnCareersTab() {
+        clickOnElement(careersTab);
     }
 }
 

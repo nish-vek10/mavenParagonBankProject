@@ -1,4 +1,4 @@
-package com.zenobe.runner;
+package co.uk.paragonbank.runner;
 
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
@@ -10,11 +10,11 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/resources/featurefile",
-        glue = "com/zenobe",
+        glue = "co/uk/paragonbank",
         plugin = {"pretty", "html:target/cucumber-report/cucumber.html",
                 "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.html",
                 "json:target/RunCuke/cucumber.json"},
-        tags = "@regression"
+        tags = "@smoke"
 )
 public class TestRunner {
 
@@ -25,7 +25,7 @@ public class TestRunner {
         Reporter.loadXMLConfig(reportConfigPath);
         Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
         Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
-        Reporter.setSystemInfo("Machine", "Windows 10" + "64 Bit");
+        Reporter.setSystemInfo("Machine", "Windows 10 " + "64 Bit");
         Reporter.setSystemInfo("Selenium", "4.7");
         Reporter.setSystemInfo("Maven", "3.9");
         Reporter.setSystemInfo("Java Version", "1.8.0_151");
